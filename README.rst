@@ -3,9 +3,8 @@
    :alt: TeleSculptor
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-TeleSculptor
+Quickstart
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 TeleSculptor is a cross-platform desktop application for photogrammetry.
 It was designed with a focus on aerial video, such as video collected from UAVs,
 and handles geospatial coordinates and can make use of metadata, if available,
@@ -16,6 +15,22 @@ as well as a sparse set of 3D landmarks.  It uses Multiview Stereo techniques
 to estimate dense depth maps on key frame and then fuses those depth maps
 into a consistent surface mesh which can be colored from the source imagery.
 
+
+End users can choose from the precompiled releases for Linux_, MacOS_, and Windows_
+or read about the release in more detail in at the
+`latest release <https://github.com/Kitware/TeleSculptor/releases/latest>`_.
+Instructions on how to use the TeleSculptor GUI can be found in
+the `User Guide <doc/TeleSculptor-v1.0-User-Guide.pdf>`_. More advanced users who
+wish to build the project from source or run command line, should proceed to the
+`Building TeleSculptor`_ section. Examples can be found in `examples <examples>`_
+directory.
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Background
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 TeleSculptor provides a graphical user interface with Qt_, 3D visualization
 with VTK_, and photogrammetry algorithms with KWIVER_. This project was
 previously called MAP-Tk (Motion-imagery Aerial Photogrammetry Toolkit).
@@ -60,9 +75,8 @@ of aerial video, our intent is to move to an online video stream processing
 framework and optimize the algorithm to run in real-time.
 
 The remainder of this document is aimed at developers who wish to build the
-project from source or run command line tools.  For end users looking for
-instruction on running the GUI application please read the
-`User Guide <doc/TeleSculptor-v1.0-User-Guide.pdf>`_.
+project from source or run command line tools.
+
 
 Overview of Directories
 =======================
@@ -83,6 +97,7 @@ Overview of Directories
 ``tools``               contains source for command line utilities
 ======================= ========================================================
 
+.. _building:
 
 Building TeleSculptor
 =====================
@@ -110,6 +125,7 @@ Here is the quickest way to build via a cmd/bash shell
   $ sudo apt-get install libexpat1-dev libgtk2.0-dev liblapack-dev
 
   mkdir telesculptor
+  cd telesculptor
   ## For this example, we assume source is in a 'src' folder under telesculptor/
   mkdir builds
   cd builds
@@ -299,7 +315,7 @@ arguments:
 
 * ``-c`` to specify an input configuration file
 * ``-o`` to output the current configuration to a file
-* ``-h`` for help (lists these options)
+* ``--help`` for help (lists these options)
 
 Each tool has all of its options, including paths to input and output files,
 specified in the configuration file.  To get started, run one of the tools
@@ -373,6 +389,9 @@ public release via 88ABW-2015-2555.
 .. _Travis CI: https://travis-ci.org/
 .. _VisualSFM: http://ccwu.me/vsfm/
 .. _VTK: https://vtk.org/
+.. _Linux: https://github.com/Kitware/TeleSculptor/releases/download/v1.0.0/TeleSculptor-1.0.0-Linux-x86_64.sh
+.. _MacOS: https://github.com/Kitware/TeleSculptor/releases/download/v1.0.0/TeleSculptor-1.0.0-Darwin-x86_64.dmg
+.. _Windows: https://github.com/Kitware/TeleSculptor/releases/download/v1.0.0/TeleSculptor-1.0.0-Windows-AMD64.exe
 
 .. Appendix II: Text Substitutions
 .. ===============================
