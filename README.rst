@@ -17,11 +17,11 @@ into a consistent surface mesh which can be colored from the source imagery.
 
 
 End users can choose from the precompiled releases for Linux_, MacOS_, and Windows_
-or read about the release in more detail in at the
-`latest release <https://github.com/Kitware/TeleSculptor/releases/latest>`_.
+or
+`read more about the latest release <https://github.com/Kitware/TeleSculptor/releases/latest>`_.
 Instructions on how to use the TeleSculptor GUI can be found in
 the `User Guide <doc/TeleSculptor-v1.0-User-Guide.pdf>`_. More advanced users who
-wish to build the project from source or run command line, should proceed to the
+wish to build the project from source or run command line tools should proceed to the
 `Building TeleSculptor`_ section. Examples can be found in `examples <examples>`_
 directory.
 
@@ -109,6 +109,11 @@ minimum required version of CMake is 3.9.5, but newer versions are recommended.
 
 Building
 --------
+Before building on linux systems you must install the following packages
+.. code-block :: bash
+
+  $ sudo apt-get install build-essential libgl1-mesa-dev libxt-dev
+  $ sudo apt-get install libexpat1-dev libgtk2.0-dev liblapack-dev
 
 The build is directed by CMake to ensure it can be built on various platforms.
 The code is built by a CMake 'superbuild', meaning as part of the build,
@@ -120,13 +125,19 @@ Here is the quickest way to build via a cmd/bash shell
 
 .. code-block :: bash
 
-  # On Linux systems, Install the following packages before building
-  $ sudo apt-get install build-essential libgl1-mesa-dev libxt-dev
-  $ sudo apt-get install libexpat1-dev libgtk2.0-dev liblapack-dev
-
   mkdir telesculptor
   cd telesculptor
+
+Now you need to get the source files. This can be done with git or by
+downloading the files and unpacking them.
+
+.. code-block :: bash
+
   ## For this example, we assume source is in a 'src' folder under telesculptor/
+  git clone https://github.com/Kitware/TeleSculptor.git src
+  # Or
+  unzip <source file name> src
+  
   mkdir builds
   cd builds
   # Feel free to make subfolders here, for example: debug and release
