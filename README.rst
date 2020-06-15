@@ -137,7 +137,7 @@ downloading the files and unpacking them.
   git clone https://github.com/Kitware/TeleSculptor.git src
   # Or
   unzip <source file name> src
-  
+
   mkdir builds
   cd builds
   # Feel free to make subfolders here, for example: debug and release
@@ -163,6 +163,21 @@ downloading the files and unpacking them.
   # When the build is complete you may close this solution.
   # To edit TeleSculptor code, open the
   # build/external/telesculptor-build/TeleSculptor.sln
+
+  # There should be a section here on any additional setup work you need to do
+  # For me, I needed to run the external/telesculptor-build/setup_TeleSculptor.sh
+  # file before I could get anything to run.
+
+  # Once you have created the installer, you can run it with the help flag
+  # to see the installation options. With the default options the binaries will
+  # be installed in as subdirectory of the current directory
+  ./<installer name>.sh --help
+
+  # Currently there is an issue with the installer and you need to run the
+  # following scripts to set up the system paths
+  ./external/telesculptor-build/setup_TeleSculptor.sh
+
+  # Then you can run the installed
 
 CMake Options
 -------------
@@ -264,6 +279,7 @@ which contains the kwiver-config.cmake file.
     $ cmake ../../src -DCMAKE_BUILD_TYPE=Release -Dkwiver_DIR:PATH=<path/to/kwiver/build/dir>
 
 You must ensure that the specified build of KWIVER was built with at least the following options set:
+I'm not sure what this means.
 
 The required KWIVER flags can be found in this file : `<CMake/telesculptor-external-kwiver.cmake>`_
 
@@ -273,9 +289,13 @@ The required Fletch flags can be found in this file : `<CMake/telesculptor-exter
 MAP-Tk Tools
 ============
 
+Note that these tools are in the process of being migrated to KWIVER_ and will
+leave this repository soon. Therefore, their behavior may not be consistent with
+the TeleSculptor GUI or documentation.
+
 MAP-Tk command line tools are placed in the ``bin`` directory of the build
-or install path.  These tools are described below.  Note that these tools are
-in the process of being migrated to KWIVER and will leave this repository soon.
+or install path.  These tools are described below.
+
 
 
 Summary of MAP-Tk Tools
